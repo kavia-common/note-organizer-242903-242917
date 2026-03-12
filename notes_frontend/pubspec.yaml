@@ -39,6 +39,18 @@ dependencies:
   intl: ^0.19.0
   cupertino_icons: ^1.0.8
 
+  # Networking + API client scaffolding
+  http: ^1.2.2
+
+  # Auth token storage (better than SharedPreferences for sensitive data)
+  flutter_secure_storage: ^9.2.4
+
+  # Offline/online awareness for sync attempts
+  connectivity_plus: ^6.1.3
+
+  # Local IDs for offline notes before server assigns an ID
+  uuid: ^4.5.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

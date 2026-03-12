@@ -1,18 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:notes_frontend/main.dart';
 
 void main() {
-  testWidgets('App generation message displayed', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
+  testWidgets('App boots', (WidgetTester tester) async {
+    // NotesApp requires dotenv load in main(); tests directly pump widget.
+    // This basic smoke test ensures widget tree builds.
+    await tester.pumpWidget(const NotesApp());
+    await tester.pump();
 
-    expect(find.text('notes_frontend App is being generated...'), findsOneWidget);
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
-  });
-
-  testWidgets('App bar has correct title', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
-
-    expect(find.text('notes_frontend'), findsOneWidget);
+    // Auth screen title should be visible (unauth state by default in tests).
+    expect(find.text('Retro Notes — Sign in'), findsOneWidget);
   });
 }
